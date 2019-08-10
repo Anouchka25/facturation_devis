@@ -1,0 +1,47 @@
+easy_admin:
+        
+    user:
+        display_name: false
+        display_avatar: true
+
+    site_name: Administration Facture & devis
+
+    #list.page_title: Administration Facture & devis
+
+    entities:
+        # change the following to the namespaces of your own entities
+        Facture:
+           list:
+              actions: ['-edit']
+           class: App\Entity\Facture
+        Devis:
+           list:
+              actions: ['-edit']
+           class: App\Entity\Devis
+        User:
+           class: App\Entity\User
+           
+        Contact:
+           class: App\Entity\Contact
+
+    design:
+        menu:
+          - { entity: 'Facture', icon: 'file', label: 'Liste des factures' } 
+          - { entity: 'Devis', icon: 'file', label: 'Liste des devis' } 
+          - { entity: 'User', icon: 'user', label: 'Liste des utilisateurs' }
+          - { entity: 'Contact', icon: 'envelope', label: 'Liste des messages' }
+        assets:
+            favicon: '/assets/backend/favicon.png'
+    
+    disabled_actions: ['delete', 'new']
+    
+    #Action à rajouter dans toutes les entités
+    list:
+      actions: 
+        - { name: 'show', icon: 'eye', label: false, title: 'Voir' }
+        - { name: 'edit', icon: 'pencil', label: false, title: 'Modifier' }
+
+      
+
+
+    

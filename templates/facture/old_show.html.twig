@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Facture{% endblock %}
+
+{% block body %}
+    <h1>Facture</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ facture.id }}</td>
+            </tr>
+            <tr>
+                <th>Numfacture</th>
+                <td>{{ facture.numfacture }}</td>
+            </tr>
+            <tr>
+                <th>Numtva</th>
+                <td>{{ facture.numtva }}</td>
+            </tr>
+            <tr>
+                <th>Datefacture</th>
+                <td>{{ facture.datefacture ? facture.datefacture|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Vosinfos</th>
+                <td>{{ facture.vosinfos }}</td>
+            </tr>
+            <tr>
+                <th>Infosclient</th>
+                <td>{{ facture.infosclient }}</td>
+            </tr>
+            <tr>
+                <th>Conditions</th>
+                <td>{{ facture.conditions }}</td>
+            </tr>
+            <tr>
+                <th>Consignes</th>
+                <td>{{ facture.consignes }}</td>
+            </tr>
+            <tr>
+                <th>Designation1</th>
+                <td>{{ facture.designation1 }}</td>
+            </tr>
+            <tr>
+                <th>Quantite1</th>
+                <td>{{ facture.quantite1 }}</td>
+            </tr>
+            <tr>
+                <th>Prixht1</th>
+                <td>{{ facture.prixht1 }}</td>
+            </tr>
+            <tr>
+                <th>Taxe1</th>
+                <td>{{ facture.taxe1 }}</td>
+            </tr>
+            <tr>
+                <th>Designation2</th>
+                <td>{{ facture.designation2 }}</td>
+            </tr>
+            <tr>
+                <th>Quantite2</th>
+                <td>{{ facture.quantite2 }}</td>
+            </tr>
+            <tr>
+                <th>Prixht2</th>
+                <td>{{ facture.prixht2 }}</td>
+            </tr>
+            <tr>
+                <th>Taxe2</th>
+                <td>{{ facture.taxe2 }}</td>
+            </tr>
+            <tr>
+                <th>Designation3</th>
+                <td>{{ facture.designation3 }}</td>
+            </tr>
+            <tr>
+                <th>Quantite3</th>
+                <td>{{ facture.quantite3 }}</td>
+            </tr>
+            <tr>
+                <th>Prixht3</th>
+                <td>{{ facture.prixht3 }}</td>
+            </tr>
+            <tr>
+                <th>Taxe3</th>
+                <td>{{ facture.taxe3 }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('facture_index') }}"><i class="fas fa-backward"></i> Retour</a><br/>
+
+    <a href="{{ path('facture_edit', {'id': facture.id}) }}"><i class="fas fa-edit"></i> Modifier</a><br/>
+    <a href="{{ path('facture_pdf', {'id': facture.id}) }}"><i class="fas fa-upload"></i> Télécharger</a><br/>
+
+    {{ include('facture/_delete_form.html.twig') }}
+{% endblock %}

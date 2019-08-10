@@ -1,0 +1,52 @@
+security:
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+
+    encoders:
+        App\Entity\User:
+            algorithm: auto
+
+    providers:
+        in_memory: { memory: ~ }
+        our_db_provider:
+           entity:
+               class: App\Entity\User
+               property: email
+
+    firewalls:
+        main:
+            anonymous: true
+
+            provider: our_db_provider
+
+            form_login:
+                login_path: app_login
+                check_path: app_login
+                default_target_path: facture_new
+
+            logout:
+                path: app_logout
+                target: app_login
+            guard:
+                authenticators:
+                    - App\Security\LoginFormAuthenticator
+            remember_me:
+                secret:   '%kernel.secret%'
+                lifetime: 2592000 # 30 days in seconds
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+    
+            # activate different ways to authenticate
+
+            # http_basic: true
+            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+
+            # form_login: true
+            # https://symfony.com/doc/current/security/form_login_setup.html
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+         - { path: ^/admin, roles: ROLE_ADMIN }
+    #     - { path: ^/profile, roles: ROLE_USER }

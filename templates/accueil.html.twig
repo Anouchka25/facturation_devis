@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+    <div class="jumbotron">
+        <h1 class="display-3">Création gratuite de vos factures et devis</h1>
+        <p class="lead">Pour créer gratuitement vos factures et devis, il vous suffit de vous inscrire gratuitement aussi.</p>
+        {% if not app.user %}
+        <p><a class="btn btn-lg btn-success" href="{{ path('user_registration') }}" role="button">Inscription</a></p>
+        {% else %}
+        <p><a class="btn btn-lg btn-success" href="{{ path('facture_new') }}" role="button">Créer une nouvelle facture</a></p>
+        {% endif %}
+      </div>
+
+      <div class="row marketing">
+        <div class="col-lg-6">
+          
+        </div>
+
+        <div class="col-lg-6">
+          
+          
+        </div>
+      </div>
+
+      <div class="m-5">L'inscription vous permet de sauvegarder vos factures et devis dans votre espace privé.</div>
+    
+{% endblock %}

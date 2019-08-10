@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste de devis{% endblock %}
+
+{% block body %}
+    <h1>Liste de mes devis</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Numdevis</th>
+                <th>Numtva</th>
+                <th>Datedevis</th>
+                <th>Vosinfos</th>
+                <th>Infosclient</th>
+                <th>Conditions</th>
+               {# <th>Consignes</th>
+                <th>Designation1</th>
+                <th>Quantite1</th>
+                <th>Prixht1</th>
+                <th>Taxe1</th>
+                <th>Designation2</th>
+                <th>Quantite2</th>
+                <th>Prixht2</th>
+                <th>Taxe2</th>
+                <th>Designation3</th>
+                <th>Quantite3</th>
+                <th>Prixht3</th>
+                <th>Taxe3</th>#}
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for devis in deviss %}
+            <tr>
+                <td>{{ devis.id }}</td>
+                <td>{{ devis.numdevis }}</td>
+                <td>{{ devis.numtva }}</td>
+                <td>{{ devis.datedevis ? devis.datedevis|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ devis.vosinfos }}</td>
+                <td>{{ devis.infosclient }}</td>
+                <td>{{ devis.conditions }}</td>
+               {# <td>{{ devis.consignes }}</td>
+                <td>{{ devis.designation1 }}</td>
+                <td>{{ devis.quantite1 }}</td>
+                <td>{{ devis.prixht1 }}</td>
+                <td>{{ devis.taxe1 }}</td>
+                <td>{{ devis.designation2 }}</td>
+                <td>{{ devis.quantite2 }}</td>
+                <td>{{ devis.prixht2 }}</td>
+                <td>{{ devis.taxe2 }}</td>
+                <td>{{ devis.designation3 }}</td>
+                <td>{{ devis.quantite3 }}</td>
+                <td>{{ devis.prixht3 }}</td>
+                <td>{{ devis.taxe3 }}</td>#}
+                <td>
+                    <a href="{{ path('devis_show', {'id': devis.id}) }}">Voir</a>
+                    <a href="{{ path('devis_edit', {'id': devis.id}) }}">Modifier</a>
+                    <a href="{{ path('devis_pdf', {'id': devis.id}) }}" target="_blank"><i class="fas fa-upload"></i> Générer au format pdf</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="21">Pas de devis trouvées, Vous n'avez pas encore crée de devis</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('devis_new') }}">Créer un nouveau devis</a>
+{% endblock %}

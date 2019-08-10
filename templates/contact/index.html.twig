@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formulaire de contact{% endblock title %}
+
+{% block body %}
+<h1>Formulaire de contact</h1>
+
+    <div class="container">
+        {{ form_start(our_form, {'attr': {'class': 'form-horizontal'}}) }}
+        <div class="form-group">
+     {{ form_label(our_form.name, "Votre nom *") }}
+
+     {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(our_form.name) }}
+
+      {# Génération de l'input. #}
+      {{ form_widget(our_form.name, {'attr': {'class': 'form-control'}}) }}
+      </div>
+
+      <div class="form-group">
+     {{ form_label(our_form.from, "Votre Email *") }}
+
+     {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(our_form.from) }}
+
+      {# Génération de l'input. #}
+      {{ form_widget(our_form.from, {'attr': {'class': 'form-control'}}) }}
+      </div>
+
+      <div class="form-group">
+     {{ form_label(our_form.message, "Votre message *") }}
+
+     {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(our_form.message) }}
+
+      {# Génération de l'input. #}
+      {{ form_widget(our_form.message, {'attr': {'class': 'form-control'}}) }}
+      </div>
+
+        <input type="submit" value="Envoyer" />
+
+        {{ form_end(our_form) }}
+    </div>
+
+{% endblock %}
+
+

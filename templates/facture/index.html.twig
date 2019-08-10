@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste de mes factures{% endblock %}
+
+{% block body %}
+    <h1>Liste de factures</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Numfacture</th>
+                <th>Numtva</th>
+                <th>Datefacture</th>
+                <th>Vosinfos</th>
+                <th>Infosclient</th>
+                <th>Conditions</th>
+               {# <th>Consignes</th>
+                <th>Designation1</th>
+                <th>Quantite1</th>
+                <th>Prixht1</th>
+                <th>Taxe1</th>
+                <th>Designation2</th>
+                <th>Quantite2</th>
+                <th>Prixht2</th>
+                <th>Taxe2</th>
+                <th>Designation3</th>
+                <th>Quantite3</th>
+                <th>Prixht3</th>
+                <th>Taxe3</th> #}
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for facture in factures %}
+            <tr>
+                <td>{{ facture.id }}</td>
+                <td>{{ facture.numfacture }}</td>
+                <td>{{ facture.numtva }}</td>
+                <td>{{ facture.datefacture ? facture.datefacture|date('d-m-Y') : '' }}</td>
+                <td>{{ facture.vosinfos }}</td>
+                <td>{{ facture.infosclient }}</td>
+                <td>{{ facture.conditions }}</td>
+                {# <td>{{ facture.consignes }}</td>
+                <td>{{ facture.designation1 }}</td>
+                <td>{{ facture.quantite1 }}</td>
+                <td>{{ facture.prixht1 }}</td>
+                <td>{{ facture.taxe1 }}</td>
+                <td>{{ facture.designation2 }}</td>
+                <td>{{ facture.quantite2 }}</td>
+                <td>{{ facture.prixht2 }}</td>
+                <td>{{ facture.taxe2 }}</td>
+                <td>{{ facture.designation3 }}</td>
+                <td>{{ facture.quantite3 }}</td>
+                <td>{{ facture.prixht3 }}</td>
+                <td>{{ facture.taxe3 }}</td>  #}
+                <td>
+                    <a href="{{ path('facture_show', {'id': facture.id}) }}"><i class="fas fa-eye"></i> Voir</a>
+                    <a href="{{ path('facture_edit', {'id': facture.id}) }}"><i class="fas fa-edit"></i> Modifier</a>
+                    <a href="{{ path('facture_pdf', {'id': facture.id}) }}" target="_blank"><i class="fas fa-upload"></i> Générer au format pdf</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="21">Pas de factures trouvées, Vous n'avez pas encore crée de factures</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('facture_new') }}">Créer une nouvelle facture</a>
+{% endblock %}

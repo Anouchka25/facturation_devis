@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Devis{% endblock %}
+
+{% block body %}
+    <h1>Devis</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Numdevis</th>
+                <td>{{ devis.numdevis }}</td>
+            </tr>
+            <tr>
+                <th>Numtva</th>
+                <td>{{ devis.numtva }}</td>
+            </tr>
+            <tr>
+                <th>Datedevis</th>
+                <td>{{ devis.datedevis ? devis.datedevis|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Vosinfos</th>
+                <td>{{ devis.vosinfos }}</td>
+            </tr>
+            <tr>
+                <th>Infosclient</th>
+                <td>{{ devis.infosclient }}</td>
+            </tr>
+            <tr>
+                <th>Conditions</th>
+                <td>{{ devis.conditions }}</td>
+            </tr>
+            <tr>
+                <th>Consignes</th>
+                <td>{{ devis.consignes }}</td>
+            </tr>
+            <tr>
+                <th>Designation1</th>
+                <td>{{ devis.designation1 }}</td>
+            </tr>
+            <tr>
+                <th>Quantite1</th>
+                <td>{{ devis.quantite1 }}</td>
+            </tr>
+            <tr>
+                <th>Prixht1</th>
+                <td>{{ devis.prixht1 }}</td>
+            </tr>
+            <tr>
+                <th>Taxe1</th>
+                <td>{{ devis.taxe1 }}</td>
+            </tr>
+            <tr>
+                <th>Designation2</th>
+                <td>{{ devis.designation2 }}</td>
+            </tr>
+            <tr>
+                <th>Quantite2</th>
+                <td>{{ devis.quantite2 }}</td>
+            </tr>
+            <tr>
+                <th>Prixht2</th>
+                <td>{{ devis.prixht2 }}</td>
+            </tr>
+            <tr>
+                <th>Taxe2</th>
+                <td>{{ devis.taxe2 }}</td>
+            </tr>
+            <tr>
+                <th>Designation3</th>
+                <td>{{ devis.designation3 }}</td>
+            </tr>
+            <tr>
+                <th>Quantite3</th>
+                <td>{{ devis.quantite3 }}</td>
+            </tr>
+            <tr>
+                <th>Prixht3</th>
+                <td>{{ devis.prixht3 }}</td>
+            </tr>
+            <tr>
+                <th>Taxe3</th>
+                <td>{{ devis.taxe3 }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('devis_index') }}">Retour</a>
+
+    <a href="{{ path('devis_edit', {'id': devis.id}) }}">Modifier</a>
+    <a href="{{ path('devis_pdf', {'id': devis.id}) }}" target="_blank"><i class="fas fa-upload"></i> Télécharger</a><br/>
+
+    {{ include('devis/_delete_form.html.twig') }}
+{% endblock %}

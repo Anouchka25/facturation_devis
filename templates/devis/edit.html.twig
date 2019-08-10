@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier le devis{% endblock %}
+
+{% block body %}
+    <h1>Modifier le devis</h1>
+
+    {{ include('devis/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('devis_index') }}">Retour</a>
+
+    {{ include('devis/_delete_form.html.twig') }}
+{% endblock %}

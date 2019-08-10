@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer un devis{% endblock %}
+
+{% block body %}
+    <h1>Création gratuite de vos devis</h1>
+
+{{ include('devis/_form.html.twig') }}
+
+    <a href="{{ path('devis_index') }}">Retour à la liste des devis</a>
+{% endblock %}

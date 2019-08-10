@@ -1,0 +1,145 @@
+<div class="container">
+ {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+    <div class="form-group">
+     {{ form_label(form.datefacture, "Date de la facture *") }}
+
+     {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(form.datefacture) }}
+
+      {# Génération de l'input. #}
+      {{ form_widget(form.datefacture, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="form-group">
+     {{ form_label(form.numfacture, "Numéro de la facture *") }}
+
+     {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(form.numfacture) }}
+
+      {# Génération de l'input. #}
+      {{ form_widget(form.numfacture, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    {# Idem pour un autre champ. #}
+  <div class="form-group">
+    {{ form_label(form.numtva, "Numéro de la TVA *") }}
+    {{ form_errors(form.numtva) }}
+      {{ form_widget(form.numtva, {'attr': {'class': 'form-control'}}) }}
+  </div>
+
+  <div class="form-group">
+    {{ form_label(form.vosinfos, "Infos de votre entreprise *") }}
+    {{ form_errors(form.vosinfos) }}
+      {{ form_widget(form.vosinfos, {'attr': {'class': 'form-control'}}) }}
+  </div>
+
+  <div class="form-group">
+    {{ form_label(form.infosclient, "Infos de votre client *") }}
+    {{ form_errors(form.infosclient) }}
+      {{ form_widget(form.infosclient, {'attr': {'class': 'form-control'}}) }}
+  </div>
+
+  <div class="form-group">
+    {{ form_label(form.conditions, "Conditions et moyens de paiement *") }}
+    {{ form_errors(form.conditions) }}
+      {{ form_widget(form.conditions, {'attr': {'class': 'form-control'}}) }}
+  </div>
+
+  <div class="form-group">
+    {{ form_label(form.consignes, "Notes particulières") }}
+    {{ form_errors(form.consignes) }}
+      {{ form_widget(form.consignes, {'attr': {'class': 'form-control'}}) }}
+  </div>
+
+  <hr style="border: 1px dashed rgb(66, 133, 244);">
+    <h1 style="text-align: center;">Vos prestations</h1>
+
+    <fieldset style="border=1">
+    <legend>Infos Prestation 1</legend>
+    <div class="form-group">
+    {{ form_label(form.designation1, "Description de la prestation *") }}
+    {{ form_errors(form.designation1) }}
+    {{ form_widget(form.designation1, {'attr': {'class': 'form-control'}}) }}
+     </div>
+
+    <div class="form-group">
+    {{ form_label(form.quantite1, "Quantité *") }}
+    {{ form_errors(form.quantite1) }}
+    {{ form_widget(form.quantite1, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="form-group">
+    {{ form_label(form.prixht1, "Prix HT *") }}
+    {{ form_errors(form.prixht1) }}
+    {{ form_widget(form.prixht1, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="form-group">
+    {{ form_label(form.taxe1, "Taxe *") }}
+    {{ form_errors(form.taxe1) }}
+    {{ form_widget(form.taxe1, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    </fieldset>
+
+    <fieldset style="border=1">
+    <legend>Infos Prestation 2</legend>
+    <div class="form-group">
+    {{ form_label(form.designation2, "Description de la prestation") }}
+    {{ form_errors(form.designation2) }}
+    {{ form_widget(form.designation2, {'attr': {'class': 'form-control'}}) }}
+     </div>
+
+    <div class="form-group">
+    {{ form_label(form.quantite2, "Quantité") }}
+    {{ form_errors(form.quantite2) }}
+    {{ form_widget(form.quantite2, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="form-group">
+    {{ form_label(form.prixht2, "Prix HT") }}
+    {{ form_errors(form.prixht2) }}
+    {{ form_widget(form.prixht2, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="form-group">
+    {{ form_label(form.taxe2, "Taxe") }}
+    {{ form_errors(form.taxe2) }}
+    {{ form_widget(form.taxe2, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    </fieldset>
+
+    <fieldset style="border=1">
+    <legend>Infos Prestation 3</legend>
+    <div class="form-group">
+    {{ form_label(form.designation3, "Description de la prestation") }}
+    {{ form_errors(form.designation3) }}
+    {{ form_widget(form.designation3, {'attr': {'class': 'form-control'}}) }}
+     </div>
+
+    <div class="form-group">
+    {{ form_label(form.quantite3, "Quantité") }}
+    {{ form_errors(form.quantite3) }}
+    {{ form_widget(form.quantite3, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="form-group">
+    {{ form_label(form.prixht3, "Prix HT") }}
+    {{ form_errors(form.prixht3) }}
+    {{ form_widget(form.prixht3, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="form-group">
+    {{ form_label(form.taxe3, "Taxe") }}
+    {{ form_errors(form.taxe3) }}
+    {{ form_widget(form.taxe3, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    </fieldset>
+  <button class="btn btn-primary">{{ button_label|default('Créer une nouvelle facture') }}</button>
+
+  {# Fermeture de la balise <form> du formulaire HTML #}
+    {{ form_end(form) }}
+
+    </div>
